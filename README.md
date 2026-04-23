@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NASHCO Rentals — Website
 
-## Getting Started
+Marketing site for [NASHCO Rentals, LLC](https://rentnashco.com), a Texas-based heavy equipment rental and civil support company.
 
-First, run the development server:
+Built on Next.js 16 (App Router) + TypeScript + Tailwind CSS 4. Deployed on Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Framework**: Next.js 16 (App Router, static rendering)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4 with a small brand token layer in `globals.css`
+- **Fonts**: Inter (body) + Space Grotesk (display) via `next/font`
+- **Email delivery**: [Resend](https://resend.com) (quote-request form → `heath@rentnashco.com`)
+- **Hosting**: Vercel
+- **Content**: File-based (TypeScript modules under `src/content/`). No CMS.
+
+## Project layout
+
+```
+src/
+  app/
+    layout.tsx              # Root layout, fonts, metadata
+    page.tsx                # Homepage
+    globals.css             # Brand tokens + custom utilities (brushed-metal, grid, hairline)
+    icon.svg                # Favicon — dark rounded square with NR badge
+    opengraph-image.tsx     # 1200x630 social card (Slack/LinkedIn/iMessage/Twitter)
+    sitemap.ts              # /sitemap.xml
+    robots.ts               # /robots.txt
+    contact/
+      page.tsx              # Quote request page
+      actions.ts            # Server action — validates + sends via Resend
+    fleet/ services/
+    industries/ about/
+  components/
+    Nav.tsx Footer.tsx      # Chrome
+    Logo.tsx                # NR badge + wordmark (references /public/brand/)
+    Container.tsx PageShell.tsx
+    SchemaMarkup.tsx        # LocalBusiness + EquipmentRental JSON-LD
+    QuoteForm.tsx           # Client form with useActionState
+  content/
+    site.ts                 # Company info, services, industries
+    fleet.ts                # Fleet data — edit here to update listings
+  lib/
+    quote-schema.ts         # Zod schema — source of truth for form validation
+public/
+  brand/
+    nr-wordmark.svg         # Source logo (black + cobalt, light-bg variant)
+    nr-wordmark-dark.svg    # Dark-theme variant (silver + cobalt)
+    nr-badge-dark.svg       # Badge-only dark variant
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Visit <http://localhost:3000>.
 
-## Learn More
+To test the quote form locally, copy `.env.example` to `.env.local` and set `RESEND_API_KEY`. Without the key, submissions are logged to the server console and the form shows a success message — no email is sent.
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Fleet listings**: edit `src/content/fleet.ts`
+- **Services / industries / company info**: edit `src/content/site.ts`
+- **Homepage copy**: edit `src/app/page.tsx` (sections are small, clearly labeled components inside the file)
+- **Sub-page copy**: each page in `src/app/{fleet,services,industries,about,contact}/page.tsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment variables
 
-## Deploy on Vercel
+See `.env.example`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Variable | Required | Description |
+|---|---|---|
+| `RESEND_API_KEY` | Prod | API key from [resend.com](https://resend.com). Without it, form logs submissions but doesn't email. |
+| `RESEND_FROM` | Optional | From address. Defaults to `onboarding@resend.dev` until you verify the domain in Resend. |
+| `QUOTE_RECIPIENT` | Optional | Destination inbox. Defaults to `heath@rentnashco.com`. |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy to Vercel
+
+1. Create a GitHub repo and push this directory to it.
+2. Go to <https://vercel.com/new>, import the repo.
+3. Vercel auto-detects Next.js — no config needed.
+4. Under "Environment Variables", paste `RESEND_API_KEY`. Optionally set `RESEND_FROM` and `QUOTE_RECIPIENT`.
+5. Click Deploy. First build runs in ~1 minute.
+6. To connect `rentnashco.com`:
+   - In Vercel: Project Settings → Domains → Add `rentnashco.com` and `www.rentnashco.com`.
+   - At your registrar: point the domain's nameservers to Vercel, or add the A / CNAME records Vercel provides.
+7. Every push to `main` redeploys automatically.
+
+## Resend setup
+
+1. Sign up at <https://resend.com> (free tier: 3K emails/month, 100/day).
+2. Create an API key. Paste into Vercel env vars as `RESEND_API_KEY`.
+3. **Domain verification (optional, recommended)**: add `rentnashco.com` in Resend and create the DNS records it gives you. Once verified, set `RESEND_FROM="NASHCO Rentals <quotes@rentnashco.com>"` so leads see a branded sender.
+
+## Build / typecheck
+
+```bash
+npm run build      # Production build. Prerenders 11 static routes.
+npx tsc --noEmit   # Type check only.
+npm run lint       # ESLint.
+```

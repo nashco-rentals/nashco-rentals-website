@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette */
+  --color-cobalt-400: #3b82f6;
+  --color-cobalt-500: #2563eb;
+  --color-cobalt-600: #1d4ed8;
+  --color-cobalt-700: #1e40af;
+
+  --color-ink-950: #05070c;
+  --color-ink-900: #0a0d14;
+  --color-ink-800: #10141c;
+  --color-ink-700: #171c27;
+
+  --color-steel-100: #e8ebf0;
+  --color-steel-200: #c9cfda;
+  --color-steel-300: #9aa3b2;
+  --color-steel-400: #6b7280;
+  --color-steel-500: #4b5563;
+  --color-steel-600: #374151;
+  --color-steel-700: #1f2937;
+
+  --color-background: var(--color-ink-900);
+  --color-foreground: var(--color-steel-100);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--color-ink-900);
+  color: var(--color-steel-100);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Brushed-metal effect for display type on dark surfaces */
+.text-brushed {
+  background-image: linear-gradient(
+    180deg,
+    #f3f5f8 0%,
+    #c9cfda 38%,
+    #8a93a3 62%,
+    #e0e4ea 85%,
+    #aab1bf 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+/* Brushed-metal button face */
+.btn-brushed {
+  background-image: linear-gradient(180deg, #eaeef3 0%, #b9c0cc 50%, #dfe3ea 100%);
+  color: var(--color-ink-900);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 12px 30px -12px rgba(5, 7, 12, 0.8);
+}
+.btn-brushed:hover {
+  background-image: linear-gradient(180deg, #f3f6fa 0%, #c8cfdb 50%, #e6eaf1 100%);
+}
+
+/* Hairline rules used across industrial section dividers */
+.hairline {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(233, 236, 240, 0.25) 15%,
+    rgba(233, 236, 240, 0.4) 50%,
+    rgba(233, 236, 240, 0.25) 85%,
+    transparent 100%
+  );
+  height: 1px;
+}
+
+/* Subtle grid background for hero */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Eyebrow label style */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-cobalt-400);
+}
+
+::selection {
+  background: var(--color-cobalt-500);
+  color: #fff;
 }
