@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Nav } from "@/components/Nav";
@@ -98,11 +99,6 @@ function Hero() {
                 number={String(fleetSummary.dumpTrucks)}
                 label="Articulated dump trucks"
                 sub="2021 John Deere 260E"
-              />
-              <StatRow
-                number="•"
-                label="Dockzilla mobile docks"
-                sub="Sub-rental on request"
               />
             </div>
             <div className="hairline my-6" />
@@ -216,17 +212,27 @@ function FleetSnapshot() {
               key={asset.slug}
               className="group overflow-hidden rounded-sm border border-white/8 bg-ink-800/60 transition hover:border-cobalt-500/40"
             >
-              {/* PHOTO PLACEHOLDER: 800x600 clean 3/4 shot of the asset,
-                  or high-contrast on-site photo. */}
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-ink-700 via-ink-800 to-ink-900">
-                <div className="absolute inset-0 bg-grid opacity-30" />
-                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-sm border border-cobalt-500/40 bg-ink-900/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-cobalt-400">
+                {asset.image ? (
+                  <Image
+                    src={asset.image}
+                    alt={`${asset.make} ${asset.model}`}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-grid opacity-30" />
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-steel-400">
+                        Photo pending
+                      </div>
+                    </div>
+                  </>
+                )}
+                <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-sm border border-cobalt-500/40 bg-ink-900/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-cobalt-400">
                   {asset.qty > 1 ? `${asset.qty} Units` : "1 Unit"}
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-steel-400">
-                    Photo pending
-                  </div>
                 </div>
               </div>
               <div className="p-5">

@@ -73,7 +73,7 @@ export const services = [
   {
     name: "Sub-Rentals",
     description:
-      "Dockzilla mobile loading docks, specialty attachments, and supplemental iron sourced on request.",
+      "Specialty attachments and supplemental iron sourced on request.",
   },
   {
     name: "Civil Support",

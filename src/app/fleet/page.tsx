@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageShell } from "@/components/PageShell";
 import { fleet } from "@/content/fleet";
 
 export const metadata: Metadata = {
   title: "Fleet",
   description:
-    "NASHCO Rentals fleet — late-model excavators, articulated dump trucks, and Dockzilla mobile loading docks. Serving Texas and surrounding states.",
+    "NASHCO Rentals fleet — late-model excavators and articulated dump trucks. Serving Texas and surrounding states.",
 };
 
 export default function FleetPage() {
@@ -34,12 +35,24 @@ export default function FleetPage() {
             className="flex flex-col overflow-hidden rounded-sm border border-white/10 bg-ink-800/40"
           >
             <div className="relative aspect-[16/10] bg-gradient-to-br from-ink-700 via-ink-800 to-ink-900">
-              <div className="absolute inset-0 bg-grid opacity-30" />
-              <div className="absolute left-4 top-4 flex items-center gap-2 rounded-sm border border-cobalt-500/40 bg-ink-900/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-cobalt-400">
+              {asset.image ? (
+                <Image
+                  src={asset.image}
+                  alt={`${asset.make} ${asset.model}`}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-grid opacity-30" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-steel-500">
+                    Photo pending
+                  </div>
+                </>
+              )}
+              <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-sm border border-cobalt-500/40 bg-ink-900/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-cobalt-400">
                 {asset.qty > 1 ? `${asset.qty} units` : asset.qty === 1 ? "1 unit" : "Sub-rental"}
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-steel-500">
-                Photo pending
               </div>
             </div>
             <div className="flex flex-1 flex-col p-6">

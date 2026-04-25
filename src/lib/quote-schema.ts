@@ -14,7 +14,6 @@ export const equipmentCategories = [
   "Excavator — Mini CAT",
   "Excavator — CAT 306 wheeled",
   "Articulated Dump Truck (John Deere 260E)",
-  "Dockzilla mobile loading dock",
   "Operator included",
   "Unsure / scope with NASHCO",
 ] as const;

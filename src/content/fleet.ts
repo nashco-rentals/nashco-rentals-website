@@ -12,7 +12,7 @@ export type FleetAsset = {
   specs: Array<{ label: string; value: string }>;
   applications: string[];
   status: "available" | "limited" | "on-request";
-  image: string; // /fleet/<slug>.jpg — pending photography
+  image?: string; // /fleet/<slug>.<ext> — omit when no photo yet
 };
 
 export const fleet: FleetAsset[] = [
@@ -34,7 +34,7 @@ export const fleet: FleetAsset[] = [
     ],
     applications: ["Mass excavation", "Pad prep", "Utility trenching", "Loadout"],
     status: "available",
-    image: "/fleet/develon-dx350.jpg",
+    image: "/fleet/develon-dx350.webp",
   },
   {
     slug: "cat-306",
@@ -53,7 +53,6 @@ export const fleet: FleetAsset[] = [
     ],
     applications: ["Utility work", "Finish grading", "Tight-access jobs"],
     status: "available",
-    image: "/fleet/cat-306.jpg",
   },
   {
     slug: "mini-cat",
@@ -71,7 +70,6 @@ export const fleet: FleetAsset[] = [
     ],
     applications: ["Backfill", "Trenching", "Site cleanup"],
     status: "available",
-    image: "/fleet/mini-cat.jpg",
   },
   {
     slug: "john-deere-260-dump",
@@ -90,30 +88,12 @@ export const fleet: FleetAsset[] = [
     ],
     applications: ["Mass haul", "Cut-and-fill", "Aggregate cycles"],
     status: "available",
-    image: "/fleet/john-deere-260.jpg",
-  },
-  {
-    slug: "dockzilla-mobile-dock",
-    make: "Dockzilla",
-    model: "Mobile Loading Dock",
-    year: 2024,
-    qty: 0,
-    category: "sub-rental",
-    class: "Sub-rental — on request",
-    headline: "Mobile loading dock solutions for temporary sites and project mobilization.",
-    specs: [
-      { label: "Availability", value: "Sub-rental on request" },
-      { label: "Use case", value: "Temporary dock-high loading at project sites" },
-    ],
-    applications: ["Temporary dock-high loading", "Project mobilization", "Event logistics"],
-    status: "on-request",
-    image: "/fleet/dockzilla.jpg",
+    image: "/fleet/john-deere-260.png",
   },
 ];
 
 export const fleetSummary = {
   excavators: fleet.filter((f) => f.category === "excavator").reduce((a, f) => a + f.qty, 0),
   dumpTrucks: fleet.filter((f) => f.category === "dump-truck").reduce((a, f) => a + f.qty, 0),
-  subRentals: "On request",
   avgFleetAge: "Late-model — 2019 to 2024",
 };
