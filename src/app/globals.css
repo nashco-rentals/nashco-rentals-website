@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette */
-  --color-cobalt-400: #3b82f6;
-  --color-cobalt-500: #2563eb;
-  --color-cobalt-600: #1d4ed8;
-  --color-cobalt-700: #1e40af;
+  /* Brand palette
+     NASHCO Cobalt is #4967AD (per brand spec). The 500 shade is the
+     canonical brand hex; 400/600/700 are symmetric lightness shifts so
+     the rest of the UI stays within brand. Do NOT replace these with
+     Tailwind's blue palette — that's how the site shipped initially and
+     it's why the whole UI was rendering off-brand. */
+  --color-cobalt-400: #6f87bb;
+  --color-cobalt-500: #4967ad;
+  --color-cobalt-600: #3a5191;
+  --color-cobalt-700: #2d3f70;
 
   --color-ink-950: #05070c;
   --color-ink-900: #0a0d14;

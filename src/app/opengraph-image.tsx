@@ -18,7 +18,7 @@ export default function OpengraphImage() {
           background:
             "linear-gradient(135deg, #0a0d14 0%, #10141c 55%, #0a0d14 100%)",
           fontFamily: "system-ui, sans-serif",
-          color: "#e8ebf0",
+          color: "#C0C5CE",
           position: "relative",
         }}
       >
@@ -51,10 +51,10 @@ export default function OpengraphImage() {
             }}
           >
             <div style={{ display: "flex", gap: 2 }}>
-              <span style={{ color: "#e8ebf0", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
+              <span style={{ color: "#C0C5CE", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 N
               </span>
-              <span style={{ color: "#2563eb", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
+              <span style={{ color: "#4967AD", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 R
               </span>
             </div>
@@ -66,7 +66,7 @@ export default function OpengraphImage() {
                 fontSize: 40,
                 fontWeight: 800,
                 letterSpacing: "0.02em",
-                color: "#e8ebf0",
+                color: "#C0C5CE",
                 lineHeight: 1,
               }}
             >
@@ -77,7 +77,7 @@ export default function OpengraphImage() {
                 fontSize: 20,
                 fontWeight: 700,
                 letterSpacing: "0.32em",
-                color: "#3b82f6",
+                color: "#4967AD",
                 marginTop: 6,
               }}
             >
@@ -95,7 +95,7 @@ export default function OpengraphImage() {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.24em",
-              color: "#3b82f6",
+              color: "#4967AD",
             }}
           >
             Bare Rental Dispatch · Texas Megaprojects
@@ -111,7 +111,7 @@ export default function OpengraphImage() {
             }}
           >
             <span style={{ color: "#d3d8e0" }}>Iron On Time. On Spec.</span>
-            <span style={{ color: "#e8ebf0" }}>On Texas Megaprojects.</span>
+            <span style={{ color: "#C0C5CE" }}>On Texas Megaprojects.</span>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ export default function OpengraphImage() {
             <span style={{ color: "#4b5563" }}>·</span>
             <span>Discipline</span>
           </div>
-          <div style={{ display: "flex", color: "#e8ebf0", fontWeight: 600 }}>
+          <div style={{ display: "flex", color: "#C0C5CE", fontWeight: 600 }}>
             rentnashco.com
           </div>
         </div>
