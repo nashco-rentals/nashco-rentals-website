@@ -19,12 +19,17 @@ export const site = {
     // TODO: confirm street address — currently published only at city/county level.
     streetAddress: "[TODO: confirm street address]",
   },
-  founded: "[TODO: confirm founding year]",
+  // Operating tenure on Texas industrial sites — defensible at the
+  // operating-fleet level. Entity-formation date for NASHCO Rentals, LLC
+  // is intentionally NOT exposed on the public site to avoid surfacing
+  // the predecessor relationship. Disclosure of the predecessor entity
+  // is reserved for NDA-covered prequal conversations.
+  operatingSince: "2024",
   contact: {
     email: "heath@rentnashco.com",
     backupEmail: "heathnash83@gmail.com",
-    phone: "[TODO: confirm dispatch line]",
-    phoneHref: "tel:+10000000000",
+    phone: "(903) 644-1122",
+    phoneHref: "tel:+19036441122",
   },
   domain: "rentnashco.com",
   url: "https://rentnashco.com",

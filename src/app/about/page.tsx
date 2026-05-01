@@ -39,10 +39,19 @@ export default function AboutPage() {
 
           <div className="hairline mt-10" />
 
+          {/* Entity-formation date intentionally NOT shown here. Operating
+              tenure ("since {operatingSince}") is the defensible credential at
+              the operating-fleet level; predecessor-entity disclosure is
+              reserved for NDA-covered prequal conversations. See
+              content/site.ts for full rationale. */}
           <dl className="mt-10 space-y-6 text-sm">
             <div>
-              <dt className="eyebrow">Founded</dt>
-              <dd className="mt-2 text-steel-200">{site.founded}</dd>
+              <dt className="eyebrow">Operating in Texas industrial since</dt>
+              <dd className="mt-2 text-steel-200">{site.operatingSince}</dd>
+            </div>
+            <div>
+              <dt className="eyebrow">Owner</dt>
+              <dd className="mt-2 text-steel-200">Heath Nash</dd>
             </div>
             <div>
               <dt className="eyebrow">Headquartered</dt>
@@ -53,10 +62,6 @@ export default function AboutPage() {
                   {site.headquarters.streetAddress}
                 </div>
               </dd>
-            </div>
-            <div>
-              <dt className="eyebrow">Owner</dt>
-              <dd className="mt-2 text-steel-200">Heath Nash</dd>
             </div>
             <div>
               <dt className="eyebrow">Service area</dt>
