@@ -59,7 +59,9 @@ export default function AboutPage() {
                 {site.headquarters.city}, {site.headquarters.county},{" "}
                 {site.headquarters.state}
                 <div className="mt-1 text-xs text-steel-500">
-                  {site.headquarters.streetAddress}
+                  {site.headquarters.streetAddress} ·{" "}
+                  {site.headquarters.city}, {site.headquarters.state}{" "}
+                  {site.headquarters.postalCode}
                 </div>
               </dd>
             </div>

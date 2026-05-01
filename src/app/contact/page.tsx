@@ -58,10 +58,13 @@ export default function ContactPage() {
                 <div>
                   <dt className="eyebrow">Address</dt>
                   <dd className="mt-2 text-steel-200">
-                    {site.headquarters.city}, {site.headquarters.county},{" "}
-                    {site.headquarters.state}
+                    {site.headquarters.streetAddress}
+                    <div className="mt-1 text-steel-200">
+                      {site.headquarters.city}, {site.headquarters.state}{" "}
+                      {site.headquarters.postalCode}
+                    </div>
                     <div className="mt-1 text-xs text-steel-500">
-                      {site.headquarters.streetAddress}
+                      {site.headquarters.county}
                     </div>
                   </dd>
                 </div>

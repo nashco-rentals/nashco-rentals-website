@@ -13,8 +13,10 @@ export function SchemaMarkup() {
     description: site.positioning,
     address: {
       "@type": "PostalAddress",
+      streetAddress: site.headquarters.streetAddress,
       addressLocality: site.headquarters.city,
       addressRegion: site.headquarters.state,
+      postalCode: site.headquarters.postalCode,
       addressCountry: site.headquarters.country,
     },
     geo: {

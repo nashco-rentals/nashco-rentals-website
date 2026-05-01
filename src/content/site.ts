@@ -10,14 +10,14 @@ export const site = {
   principles: ["Reliability", "Partnership", "Discipline"],
   serviceArea: "Texas and surrounding states",
   headquarters: {
-    city: "Leona",
+    streetAddress: "8986 County Road 402",
+    city: "Normangee",
     county: "Leon County",
     state: "TX",
+    postalCode: "77871",
     country: "US",
-    lat: 31.1468,
-    lng: -95.9766,
-    // TODO: confirm street address — currently published only at city/county level.
-    streetAddress: "[TODO: confirm street address]",
+    lat: 31.0290,
+    lng: -96.1080,
   },
   // Operating tenure on Texas industrial sites — defensible at the
   // operating-fleet level. Entity-formation date for NASHCO Rentals, LLC
@@ -34,8 +34,16 @@ export const site = {
   domain: "rentnashco.com",
   url: "https://rentnashco.com",
   insurance: {
-    // TODO: confirm exact GL / Auto / WC / Excess / Pollution limits.
-    coverage: "GL · Commercial Auto · Workers' Comp · Excess · Pollution",
+    // Verified from carrier-issued ACORD 25 (policy period 7/19/2025–7/19/2026,
+    // confirmed via AMI Insurance Agency). Carriers: Gemini Insurance Co (GL +
+    // Hired & Non-Owned Auto), Texas Mutual (WC), Starr Indemnity (Contractors
+    // Equipment / Inland Marine).
+    //
+    // Pollution Liability and standalone Commercial Auto (Symbol 1) are NOT
+    // currently in force — intentionally NOT listed here. Add them only after
+    // policies are bound and COIs issued.
+    coverage:
+      "General Liability $1M / $2M aggregate · Excess $1M · Workers' Comp $1M / $1M / $1M · Hired & Non-Owned Auto $1M · Contractors Equipment policy on owned fleet",
     note: "Certificates of Insurance issued on request",
   },
   // ISN/Avetta status — show badges only when verified subscription is active.
@@ -102,10 +110,18 @@ export const capabilities = [
 
 export const compliance = [
   "ISN / Avetta / Veriforce-ready prequal package available on request",
-  "Insurance: GL, Commercial Auto, Workers' Comp, Excess, Pollution [TODO: confirm exact limits]",
+  "General Liability $1M / $2M aggregate · Excess $1M (sits over GL + Auto)",
+  "Workers' Compensation $1M / $1M / $1M (Texas Mutual)",
+  "Hired & Non-Owned Auto $1M CSL · Contractors Equipment / Inland Marine policy on owned fleet",
+  "Certificates of Insurance issued on request; carriers Gemini, Texas Mutual, Starr Indemnity",
   "OSHA-compliant safety program; TRIR / EMR available on request",
   "Texas-based dispatch — no out-of-state mobilization delay",
-  "Bonding capacity for single-job and aggregate megaproject scopes [TODO: confirm bonding capacity]",
+  // TODO: add a Pollution Liability bullet only after Becca confirms a CPL
+  // policy is bound. Currently NOT in force.
+  // TODO: add a Commercial Auto (Symbol 1) bullet only if/when an owned-auto
+  // policy is bound. Currently only Hired & Non-Owned Auto is in force.
+  // TODO: add a Bonding capacity bullet only after a surety relationship is
+  // established and limits are confirmed.
 ] as const;
 
 // ---------------------------------------------------------------------------
