@@ -3,12 +3,7 @@ import { Container } from "@/components/Container";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
-import {
-  site,
-  capabilities,
-  activeProjects,
-  builtFor,
-} from "@/content/site";
+import { site, capabilities, builtFor } from "@/content/site";
 
 export default function Home() {
   return (
@@ -19,7 +14,7 @@ export default function Home() {
         <Hero />
         <TrustStrip />
         <CapabilityBlocks />
-        <Reference />
+        <OperatingPosture />
         <BuiltFor />
         <FinalCTA />
       </main>
@@ -87,8 +82,15 @@ function TrustStrip() {
   // confirmed active. Defensible "ready prequal package" language lives on
   // /capabilities under the Compliance section.
   // TODO: confirm bonding capacity language once underwriter confirms limits.
+  //
+  // Tesla GFTX is intentionally NOT named here. Naming Tesla without prior
+  // written consent likely violates MSA flow-down confidentiality, and the
+  // GFTX work is performed under the Proscape Development DBA — not under
+  // Nashco Rentals, LLC. Re-introduce a customer-named credential only when:
+  //   (a) Tesla / civil contractor confirms public naming is permitted, AND
+  //   (b) the work has transitioned from Proscape DBA to Nashco LLC.
   const items = [
-    "Active on Tesla Giga Texas (Travis County, TX) since 2024",
+    "Live fleet at some of Texas' largest industrial sites since 2024",
     "24/7 Texas-based dispatch",
     "Insured for industrial-scale projects · COI on request",
   ];
@@ -149,41 +151,37 @@ function CapabilityBlocks() {
   );
 }
 
-/* -------------------- Reference / proof block -------------------- */
-function Reference() {
-  // TODO: expand Tesla reference detail only after Kelly Nelson reference
-  // letter is signed AND civil contractor confirms public naming is permitted
-  // under MSA. Generic line below is the only sanctioned public language.
-  const tesla = activeProjects[0];
+/* -------------------- Operating posture (was: Reference) -------------------- */
+//
+// Customer-named reference (Tesla GFTX) intentionally NOT shown here. See the
+// TrustStrip comment above for the two conditions required before any
+// customer-named credential goes back on this page.
+//
+// Until those conditions are met, this block makes a defensible posture claim
+// that is true of the operating fleet without naming customers or projects.
+function OperatingPosture() {
   return (
     <section className="border-b border-white/5 bg-ink-950 py-20 md:py-28">
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="eyebrow">Reference</div>
+            <div className="eyebrow">Operating posture</div>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-steel-100 sm:text-3xl md:text-4xl">
-              Trusted on Texas&apos;s largest active industrial build.
+              Built for 24/7 work fronts on Texas megaproject sites.
             </h2>
           </div>
           <div className="md:col-span-7">
             <div className="rounded-sm border border-white/10 bg-ink-800/60 p-8 md:p-10">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cobalt-400">
-                {tesla.location}
-              </div>
-              <div className="mt-2 font-[family-name:var(--font-display)] text-xl font-semibold text-steel-100">
-                {tesla.name}
-              </div>
-              <p className="mt-4 leading-relaxed text-steel-300">
-                {tesla.summary}
+              <p className="leading-relaxed text-steel-300">
+                Owned fleet operating in continuous duty across Texas
+                industrial construction since 2024. Light towers, civil iron,
+                and site support — dispatched same-day from a Texas-based
+                operator, scaled with the schedule, not against it.
               </p>
-              {tesla.referenceLetterUrl && (
-                <a
-                  href={tesla.referenceLetterUrl}
-                  className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-cobalt-400 hover:text-steel-100"
-                >
-                  Read the reference letter (PDF) &rarr;
-                </a>
-              )}
+              <p className="mt-4 leading-relaxed text-steel-300">
+                Project-specific references and COIs available on request
+                through prequal.
+              </p>
             </div>
           </div>
         </div>

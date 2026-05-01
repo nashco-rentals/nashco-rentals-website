@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
-import { activeProjects, capabilityTargets } from "@/content/site";
+import { capabilityTargets } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Active references and capability targets across Texas megaprojects — data centers, LNG terminals, semiconductor fabs, and gas-fired power generation.",
+    "Capability targets across Texas megaprojects — data centers, LNG terminals, semiconductor fabs, and gas-fired power generation. Project-specific references available on request.",
 };
+
+// Customer-named "Active" reference (Tesla GFTX) intentionally NOT shown here.
+// Two reasons:
+//   1. Naming Tesla without prior written consent likely violates MSA flow-down
+//      confidentiality.
+//   2. The work at GFTX is performed under the Proscape Development DBA, not
+//      under Nashco Rentals, LLC — so Nashco the entity cannot defensibly
+//      claim that credential to a procurement lead doing diligence.
+// Re-introduce a customer-named "Active" block here only when:
+//   (a) Tesla / civil contractor confirms public naming is permitted, AND
+//   (b) the work is transitioned from Proscape DBA to Nashco LLC.
+// Until then, the page is "capability targets" only — public-tier project
+// names where we'd genuinely deploy on request.
 
 export default function ProjectsPage() {
   return (
@@ -14,50 +27,29 @@ export default function ProjectsPage() {
       eyebrow="Projects"
       title={
         <>
-          <span className="text-brushed">Active on Texas&apos;</span>
+          <span className="text-brushed">Built for Texas&apos;</span>
           <br />
           <span className="text-steel-100">largest industrial builds.</span>
         </>
       }
       intro={
         <p>
-          Reference scope below. For project-specific capability briefs, request
-          one through the contact page.
+          Capability targets below — Texas megaprojects within our deployment
+          range. For project-specific references and COIs during prequal,
+          request a capability brief through the contact page.
         </p>
       }
     >
       <section>
-        <div className="eyebrow">Active</div>
-        <div className="mt-6 grid gap-6">
-          {activeProjects.map((p) => (
-            <article
-              key={p.name}
-              className="rounded-sm border border-white/10 bg-ink-800/40 p-8 md:p-10"
-            >
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cobalt-400">
-                {p.location}
-              </div>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-steel-100 sm:text-3xl">
-                {p.name}
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-steel-300">
-                {p.summary}
-              </p>
-              {p.referenceLetterUrl ? (
-                <a
-                  href={p.referenceLetterUrl}
-                  className="mt-6 inline-flex text-sm font-semibold uppercase tracking-[0.14em] text-cobalt-400 hover:text-steel-100"
-                >
-                  Read the reference letter (PDF) &rarr;
-                </a>
-              ) : (
-                <div className="mt-6 text-xs text-steel-500">
-                  {/* TODO: replace with link to Kelly Nelson reference letter PDF once signed. */}
-                  [TODO: link reference letter once signed]
-                </div>
-              )}
-            </article>
-          ))}
+        <div className="eyebrow">Operating posture</div>
+        <div className="mt-6 rounded-sm border border-white/10 bg-ink-800/40 p-8 md:p-10">
+          <p className="max-w-3xl leading-relaxed text-steel-300">
+            Owned fleet operating in continuous duty across Texas industrial
+            construction since 2024. Light towers, civil iron, and site support
+            — dispatched same-day from a Texas-based operator, scaled with the
+            schedule. Project-specific references and COIs available on request
+            through prequal.
+          </p>
         </div>
       </section>
 

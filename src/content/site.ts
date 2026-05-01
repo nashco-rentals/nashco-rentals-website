@@ -104,21 +104,25 @@ export const compliance = [
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Projects — active references and capability targets.
+// Projects — capability targets only.
 // ---------------------------------------------------------------------------
-
-// Tesla GFTX reference is intentionally generic — no phase names, no scope detail.
-// TODO: expand Tesla reference detail only after Kelly Nelson reference letter
-// is signed AND civil contractor confirms public naming is permitted under MSA.
-export const activeProjects = [
-  {
-    name: "Tesla Giga Texas (GFTX)",
-    location: "Travis County, TX",
-    summary:
-      "Active on Tesla Giga Texas (Travis County, TX) since 2024 — 25+ assets, 24/7 continuous duty across multiple work fronts.",
-    referenceLetterUrl: null as string | null, // TODO: link to Kelly Nelson reference letter PDF when signed.
-  },
-] as const;
+//
+// IMPORTANT — no `activeProjects` array here, by design.
+//
+// The Tesla Giga Texas (GFTX) reference is intentionally NOT exported as data
+// because (1) naming Tesla in marketing without prior written consent likely
+// violates MSA flow-down confidentiality, and (2) the GFTX work is performed
+// under the Proscape Development DBA — not under Nashco Rentals, LLC — so
+// Nashco the entity cannot defensibly claim that credential during prequal.
+//
+// Re-introduce an `activeProjects` export here only when BOTH conditions are
+// met:
+//   (a) Tesla / civil contractor confirms public naming is permitted, AND
+//   (b) the work is transitioned from Proscape DBA to Nashco LLC, so the
+//       Nashco entity owns the credential.
+//
+// Until then, the public surface speaks to capability targets and operating
+// posture only.
 
 export const capabilityTargets = [
   { name: "OpenAI / Crusoe Stargate", location: "Abilene, TX" },
