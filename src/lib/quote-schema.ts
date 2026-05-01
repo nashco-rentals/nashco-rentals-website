@@ -4,34 +4,60 @@ export const projectTypes = [
   "EV / Gigafactory",
   "LNG / Energy Infrastructure",
   "Data Center",
+  "Semiconductor Fab",
+  "Power Generation",
   "Site Development",
   "Municipal / DOT",
   "Other",
 ] as const;
 
+// Bundle option is intentionally first and visually separated in the form.
+// Selecting it routes the lead through the high-margin sub-rent dispatch path
+// and prefixes the email subject with [BUNDLE] for inbox triage.
+export const BUNDLE_OPTION = "Sub-rent package (multiple categories)" as const;
+
+export const singleEquipmentCategories = [
+  "Light Towers",
+  "Civil Iron",
+  "Site Support",
+  "Aerial / Manlifts",
+  "Storage / Trailers",
+  "Climate / Power",
+  "Fence / Ground Support",
+  "Other",
+] as const;
+
 export const equipmentCategories = [
-  "Excavator — 35-ton (Develon DX350)",
-  "Excavator — Mini CAT",
-  "Excavator — CAT 306 wheeled",
-  "Articulated Dump Truck (John Deere 260E)",
-  "Operator included",
-  "Unsure / scope with NASHCO",
+  BUNDLE_OPTION,
+  ...singleEquipmentCategories,
+] as const;
+
+export const mobilizationTimelines = [
+  "Immediate",
+  "30 days",
+  "60 days",
+  "90+ days",
 ] as const;
 
 export const quoteSchema = z.object({
-  company: z.string().trim().min(1, "Company name is required").max(200),
   name: z.string().trim().min(1, "Name is required").max(120),
+  company: z.string().trim().min(1, "Company name is required").max(200),
+  projectName: z.string().trim().min(2, "Project name or location is required").max(200),
+  phone: z.string().trim().max(40).optional().default(""),
   email: z.string().trim().email("Valid email required").max(200),
-  phone: z.string().trim().min(7, "Phone is required").max(40),
-  projectType: z.enum(projectTypes),
-  equipment: z.array(z.enum(equipmentCategories)).max(equipmentCategories.length).default([]),
-  siteLocation: z.string().trim().min(2, "Site location is required").max(200),
-  startDate: z.string().trim().max(60).optional().default(""),
-  duration: z.string().trim().max(60).optional().default(""),
-  scope: z.string().trim().min(10, "A few sentences of project scope helps us quote fast").max(5000),
+  equipment: z
+    .array(z.enum(equipmentCategories))
+    .max(equipmentCategories.length)
+    .default([]),
+  mobilization: z.enum(mobilizationTimelines).optional(),
+  message: z.string().trim().max(5000).optional().default(""),
   // Honeypot — real submissions leave this empty.
   website: z.string().max(0).optional().default(""),
 });
 
 export type QuoteInput = z.input<typeof quoteSchema>;
 export type QuoteParsed = z.output<typeof quoteSchema>;
+
+export function isBundleSubmission(equipment: readonly string[]): boolean {
+  return equipment.includes(BUNDLE_OPTION);
+}

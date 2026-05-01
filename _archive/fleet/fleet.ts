@@ -39,20 +39,21 @@ export const fleet: FleetAsset[] = [
   {
     slug: "cat-306",
     make: "Caterpillar",
-    model: "306 (wheeled)",
+    model: "306",
     year: 2019,
     qty: 1,
     category: "excavator",
-    class: "Compact wheeled excavator",
-    headline: "Rubber-tire compact for urban sites, landscaping, and quick redeploys.",
+    class: "Compact tracked excavator",
+    headline: "Compact tracked machine for tight-access work, utilities, and finish grading.",
     specs: [
       { label: "Operating weight", value: "~14,500 lb" },
-      { label: "Configuration", value: "Wheeled" },
+      { label: "Configuration", value: "Tracked" },
       { label: "Typical applications", value: "Utility work, finish grading" },
       { label: "Year", value: "2019" },
     ],
     applications: ["Utility work", "Finish grading", "Tight-access jobs"],
     status: "available",
+    image: "/fleet/cat-306.jpg",
   },
   {
     slug: "mini-cat",
@@ -88,7 +89,7 @@ export const fleet: FleetAsset[] = [
     ],
     applications: ["Mass haul", "Cut-and-fill", "Aggregate cycles"],
     status: "available",
-    image: "/fleet/john-deere-260.png",
+    image: "/fleet/john-deere-260.jpg",
   },
 ];
 

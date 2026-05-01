@@ -1,5 +1,4 @@
-import { site } from "@/content/site";
-import { fleet } from "@/content/fleet";
+import { site, capabilities } from "@/content/site";
 
 export function SchemaMarkup() {
   const localBusiness = {
@@ -11,7 +10,7 @@ export function SchemaMarkup() {
     url: site.url,
     email: site.contact.email,
     telephone: site.contact.phone,
-    description: site.tagline,
+    description: site.positioning,
     address: {
       "@type": "PostalAddress",
       addressLocality: site.headquarters.city,
@@ -27,14 +26,14 @@ export function SchemaMarkup() {
       { "@type": "State", name: "Texas" },
       { "@type": "Place", name: site.serviceArea },
     ],
-    makesOffer: fleet.map((f) => ({
+    // Capability-level offers — no per-SKU listings, since the owned fleet is
+    // committed long-term and individual asset availability isn't public.
+    makesOffer: capabilities.map((c) => ({
       "@type": "Offer",
       itemOffered: {
-        "@type": "Product",
-        name: `${f.year} ${f.make} ${f.model}`,
-        category: f.class,
-        description: f.headline,
-        brand: f.make,
+        "@type": "Service",
+        name: c.name,
+        description: c.summary,
       },
     })),
   };

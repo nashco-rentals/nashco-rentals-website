@@ -5,13 +5,13 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "NASHCO Rentals, LLC — a Texas-based heavy equipment rental and civil support company built on reliability, partnership, and discipline.",
+    "Nashco is a Texas-based bare rental and dispatch operation supplying industrial construction across the state — light towers, civil iron, and site support, plus a full-package sub-rent network.",
 };
 
 export default function AboutPage() {
   return (
     <PageShell
-      eyebrow="About NASHCO"
+      eyebrow="About Nashco"
       title={
         <>
           <span className="text-brushed">Texas-based.</span>{" "}
@@ -20,14 +20,51 @@ export default function AboutPage() {
       }
       intro={
         <p>
-          NASHCO Rentals, LLC is a heavy equipment rental and civil support
-          company based in {site.headquarters.city}, {site.headquarters.state}.
-          We serve Tier-1 contractors, industrial end-users, and infrastructure
-          builders across {site.serviceArea.toLowerCase()}.
+          Nashco is a Texas-based bare rental and dispatch operation supplying
+          industrial construction across the state. We supply iron and the
+          dispatch infrastructure to keep it running — light towers, civil
+          equipment, site support — directly from owned fleet, plus a
+          full-package bare rental capability through our sub-rent network with
+          the major Texas dealers.
         </p>
       }
     >
       <div className="grid gap-12 md:grid-cols-2">
+        <section>
+          <p className="text-steel-300">
+            We work where construction is hardest: 24/7 sites, mega-scale
+            civil, modular assembly, and time-critical commissioning. We&apos;re
+            the call you make when downtime isn&apos;t an option.
+          </p>
+
+          <div className="hairline mt-10" />
+
+          <dl className="mt-10 space-y-6 text-sm">
+            <div>
+              <dt className="eyebrow">Founded</dt>
+              <dd className="mt-2 text-steel-200">{site.founded}</dd>
+            </div>
+            <div>
+              <dt className="eyebrow">Headquartered</dt>
+              <dd className="mt-2 text-steel-200">
+                {site.headquarters.city}, {site.headquarters.county},{" "}
+                {site.headquarters.state}
+                <div className="mt-1 text-xs text-steel-500">
+                  {site.headquarters.streetAddress}
+                </div>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow">Owner</dt>
+              <dd className="mt-2 text-steel-200">Heath Nash</dd>
+            </div>
+            <div>
+              <dt className="eyebrow">Service area</dt>
+              <dd className="mt-2 text-steel-200">{site.serviceArea}</dd>
+            </div>
+          </dl>
+        </section>
+
         <section>
           <div className="eyebrow">Operating principles</div>
           <ul className="mt-6 space-y-6">
@@ -52,51 +89,30 @@ export default function AboutPage() {
                 <div className="font-[family-name:var(--font-display)] text-lg font-semibold text-steel-100">
                   {p.name}
                 </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-steel-300">{p.blurb}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-steel-300">
+                  {p.blurb}
+                </p>
               </li>
             ))}
           </ul>
-        </section>
 
-        <section>
-          <div className="eyebrow">Service posture</div>
-          <dl className="mt-6 grid gap-5">
-            <div className="rounded-sm border border-white/8 bg-ink-800/40 p-5">
-              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-steel-400">
-                Headquarters
-              </dt>
-              <dd className="mt-2 text-steel-100">
-                {site.headquarters.city}, {site.headquarters.county},{" "}
-                {site.headquarters.state}
-              </dd>
-            </div>
-            <div className="rounded-sm border border-white/8 bg-ink-800/40 p-5">
-              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-steel-400">
-                Service area
-              </dt>
-              <dd className="mt-2 text-steel-100">{site.serviceArea}</dd>
-            </div>
-            <div className="rounded-sm border border-white/8 bg-ink-800/40 p-5">
-              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-steel-400">
-                Insurance
-              </dt>
-              <dd className="mt-2 text-steel-100">
-                {site.insurance.general}
-                <div className="mt-1 text-sm text-steel-400">
-                  Certificates of Insurance issued on request.
-                </div>
-              </dd>
-            </div>
-            <div className="rounded-sm border border-white/8 bg-ink-800/40 p-5">
-              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-steel-400">
-                Safety
-              </dt>
-              <dd className="mt-2 text-steel-100">
-                Documented maintenance logs on every asset. On-site conduct
-                standards for operators and subs.
-              </dd>
-            </div>
-          </dl>
+          <div className="hairline mt-10" />
+
+          <div className="mt-10">
+            <div className="eyebrow">Certifications &amp; memberships</div>
+            <p className="mt-3 text-sm text-steel-300">
+              {/* Per Heath: ISN/Avetta badges only display when subscriptions are
+                  verified active. Until then, only the defensible "ready prequal
+                  package available on request" language is shown. */}
+              ISN / Avetta / Veriforce-ready prequal package available on
+              request.
+              <br />
+              <span className="text-steel-500">
+                [TODO: confirm ISN / Avetta verified status; add badges only when
+                subscriptions are active.]
+              </span>
+            </p>
+          </div>
         </section>
       </div>
     </PageShell>

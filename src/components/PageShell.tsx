@@ -37,14 +37,14 @@ export function PageShell({
               <div>
                 <div className="eyebrow">Next step</div>
                 <div className="mt-2 font-[family-name:var(--font-display)] text-xl font-semibold text-steel-100">
-                  Tell us the job. We&apos;ll tell you what&apos;s available.
+                  Need a bare rental package on your site?
                 </div>
               </div>
               <Link
                 href="/contact"
                 className="btn-brushed mt-6 inline-flex h-11 items-center rounded-sm px-6 text-sm font-bold uppercase tracking-[0.14em] md:mt-0"
               >
-                Request Quote
+                Request a Capability Brief
               </Link>
             </div>
           )}

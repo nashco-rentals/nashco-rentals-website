@@ -20,24 +20,24 @@ const siteUrl = "https://rentnashco.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "NASHCO Rentals — Heavy Equipment Rental & Civil Support, Texas",
-    template: "%s · NASHCO Rentals",
+    default: "Nashco Rentals — 24/7 Bare Rental Dispatch for Texas Megaprojects",
+    template: "%s · Nashco Rentals",
   },
   description:
-    "Texas-based heavy equipment rental and civil support for Tier-1 contractors, industrial, and infrastructure builders. Late-model excavators and dump trucks, reliable dispatch, enterprise-grade service.",
+    "24/7 bare rental dispatch supplying light towers, civil iron, and site-support equipment to Texas industrial construction. Owned fleet plus sub-rent network — one PO, single point of contact.",
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "NASHCO Rentals",
-    title: "NASHCO Rentals — Heavy Equipment Rental & Civil Support",
+    siteName: "Nashco Rentals",
+    title: "Nashco Rentals — 24/7 Bare Rental Dispatch for Texas Megaprojects",
     description:
-      "Texas-based heavy equipment rental and civil support. Reliability, Partnership, Discipline.",
+      "Light towers, civil iron, site support. Owned fleet plus sub-rent network. One PO, full package, single point of contact.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NASHCO Rentals",
+    title: "Nashco Rentals",
     description:
-      "Texas-based heavy equipment rental and civil support.",
+      "24/7 bare rental dispatch for Texas megaprojects. Owned fleet plus sub-rent network.",
   },
   icons: {
     icon: "/favicon.ico",

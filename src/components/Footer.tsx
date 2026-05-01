@@ -10,19 +10,19 @@ export function Footer() {
         <div className="md:col-span-2">
           <Logo />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-steel-300">
-            Heavy equipment rental and civil support built on reliability,
-            partnership, and discipline. Based in {site.headquarters.city}, {site.headquarters.state} —
-            serving {site.serviceArea.toLowerCase()}.
+            24/7 bare rental dispatch for Texas megaprojects. Owned fleet plus
+            sub-rent network — one PO, single point of contact. Based in{" "}
+            {site.headquarters.city}, {site.headquarters.state}.
           </p>
         </div>
 
         <div>
           <div className="eyebrow">Company</div>
           <ul className="mt-4 space-y-2 text-sm text-steel-300">
-            <li><Link href="/fleet" className="hover:text-steel-100">Fleet</Link></li>
-            <li><Link href="/services" className="hover:text-steel-100">Services</Link></li>
-            <li><Link href="/industries" className="hover:text-steel-100">Industries</Link></li>
+            <li><Link href="/capabilities" className="hover:text-steel-100">Capabilities</Link></li>
+            <li><Link href="/projects" className="hover:text-steel-100">Projects</Link></li>
             <li><Link href="/about" className="hover:text-steel-100">About</Link></li>
+            <li><Link href="/contact" className="hover:text-steel-100">Contact</Link></li>
           </ul>
         </div>
 

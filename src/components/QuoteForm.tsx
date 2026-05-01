@@ -3,7 +3,11 @@
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitQuote, type QuoteState } from "@/app/contact/actions";
-import { projectTypes, equipmentCategories } from "@/lib/quote-schema";
+import {
+  BUNDLE_OPTION,
+  singleEquipmentCategories,
+  mobilizationTimelines,
+} from "@/lib/quote-schema";
 
 const initialState: QuoteState = { status: "idle" };
 
@@ -13,12 +17,13 @@ export function QuoteForm() {
   if (state.status === "success") {
     return (
       <div className="rounded-sm border border-cobalt-500/40 bg-cobalt-500/10 p-8">
-        <div className="eyebrow">Quote received</div>
+        <div className="eyebrow">Capability brief received</div>
         <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold text-steel-100">
           {state.message}
         </h3>
         <p className="mt-3 text-sm text-steel-300">
-          If you don&apos;t hear back within one business day, call us directly.
+          If you don&apos;t hear back within four business hours, call dispatch
+          directly.
         </p>
       </div>
     );
@@ -38,11 +43,26 @@ export function QuoteForm() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
+        <Field label="Name" name="name" required error={err("name")} />
         <Field label="Company" name="company" required error={err("company")} />
-        <Field label="Contact name" name="name" required error={err("name")} />
       </div>
 
+      <Field
+        label="Project name or location"
+        name="projectName"
+        placeholder="e.g., Stargate Phase 2 — Abilene, TX"
+        required
+        error={err("projectName")}
+      />
+
       <div className="grid gap-6 sm:grid-cols-2">
+        <Field
+          label="Phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          error={err("phone")}
+        />
         <Field
           label="Email"
           name="email"
@@ -51,52 +71,35 @@ export function QuoteForm() {
           required
           error={err("email")}
         />
-        <Field
-          label="Phone"
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          required
-          error={err("phone")}
-        />
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <SelectField
-          label="Project type"
-          name="projectType"
-          options={[...projectTypes]}
-          required
-          error={err("projectType")}
-        />
-        <Field
-          label="Site location"
-          name="siteLocation"
-          placeholder="City, State"
-          required
-          error={err("siteLocation")}
-        />
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field
-          label="Preferred start date"
-          name="startDate"
-          placeholder="e.g., 5/6/2026 or ASAP"
-          error={err("startDate")}
-        />
-        <Field
-          label="Duration"
-          name="duration"
-          placeholder="e.g., 3 weeks, 6 months"
-          error={err("duration")}
-        />
       </div>
 
       <fieldset className="grid gap-3">
-        <legend className="text-sm font-semibold text-steel-100">Equipment needed</legend>
+        <legend className="text-sm font-semibold text-steel-100">
+          Equipment categories needed
+        </legend>
+
+        {/* Bundle option — visually separated as the highest-priority lead path. */}
+        <label
+          className="flex cursor-pointer items-start gap-3 rounded-sm border border-cobalt-500/40 bg-cobalt-500/10 p-4 text-sm text-steel-100 transition has-[:checked]:border-cobalt-500 has-[:checked]:bg-cobalt-500/20"
+        >
+          <input
+            type="checkbox"
+            name="equipment"
+            value={BUNDLE_OPTION}
+            className="mt-0.5 h-4 w-4 accent-cobalt-500"
+          />
+          <span>
+            <span className="block font-semibold">{BUNDLE_OPTION}</span>
+            <span className="mt-1 block text-xs text-steel-300">
+              Multiple categories on one PO — fastest dispatch path.
+            </span>
+          </span>
+        </label>
+
+        <div className="hairline my-3" />
+
         <div className="grid gap-2 sm:grid-cols-2">
-          {equipmentCategories.map((eq) => (
+          {singleEquipmentCategories.map((eq) => (
             <label
               key={eq}
               className="flex cursor-pointer items-start gap-3 rounded-sm border border-white/8 bg-ink-800/40 p-3 text-sm text-steel-200 transition hover:border-cobalt-500/40 has-[:checked]:border-cobalt-500 has-[:checked]:bg-cobalt-500/10"
@@ -113,13 +116,20 @@ export function QuoteForm() {
         </div>
       </fieldset>
 
+      <SelectField
+        label="Mobilization timeline"
+        name="mobilization"
+        options={[...mobilizationTimelines]}
+        placeholder="Select timeline"
+        error={err("mobilization")}
+      />
+
       <TextareaField
-        label="Project scope / notes"
-        name="scope"
+        label="Message (optional)"
+        name="message"
         rows={5}
-        required
-        placeholder="Brief description of the work, site conditions, and any sequencing constraints we should know."
-        error={err("scope")}
+        placeholder="Site conditions, sequencing constraints, anything else we should know."
+        error={err("message")}
       />
 
       {state.status === "error" && state.message && (
@@ -130,7 +140,8 @@ export function QuoteForm() {
 
       <div className="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-steel-400">
-          We respond within one business day — often the same day.
+          We respond within 4 hours during business hours, same day for active
+          dispatch.
         </p>
         <SubmitButton />
       </div>
@@ -146,7 +157,7 @@ function SubmitButton() {
       disabled={pending}
       className="btn-brushed inline-flex h-12 items-center rounded-sm px-6 text-sm font-bold uppercase tracking-[0.14em] disabled:cursor-not-allowed disabled:opacity-60"
     >
-      {pending ? "Sending…" : "Send Request"}
+      {pending ? "Sending…" : "Request Capability Brief"}
     </button>
   );
 }
@@ -163,7 +174,15 @@ type FieldProps = {
   error?: string;
 };
 
-function Field({ label, name, type = "text", required, autoComplete, placeholder, error }: FieldProps) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+  autoComplete,
+  placeholder,
+  error,
+}: FieldProps) {
   return (
     <label className="block">
       <span className="block text-sm font-semibold text-steel-100">
@@ -190,12 +209,14 @@ function SelectField({
   name,
   options,
   required,
+  placeholder,
   error,
 }: {
   label: string;
   name: string;
   options: string[];
   required?: boolean;
+  placeholder?: string;
   error?: string;
 }) {
   return (
@@ -213,7 +234,7 @@ function SelectField({
         }`}
       >
         <option value="" disabled>
-          Select project type
+          {placeholder ?? "Select"}
         </option>
         {options.map((o) => (
           <option key={o} value={o}>

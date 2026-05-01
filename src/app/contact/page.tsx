@@ -6,9 +6,9 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Request a Quote",
+  title: "Request a Capability Brief",
   description:
-    "Request a quote for heavy equipment rental and civil support from NASHCO Rentals. Most quotes returned the same business day.",
+    "Request a capability brief from Nashco. We respond within 4 hours during business hours, same day for active dispatch on Texas megaprojects.",
 };
 
 export default function ContactPage() {
@@ -19,52 +19,56 @@ export default function ContactPage() {
         <Container className="py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
-              <div className="eyebrow">Request a quote</div>
+              <div className="eyebrow">Contact dispatch</div>
               <h1 className="mt-5 font-[family-name:var(--font-display)] text-[2.25rem] font-bold leading-[1.05] tracking-tight sm:text-4xl md:text-5xl">
-                <span className="text-brushed">Tell us the job.</span>
+                <span className="text-brushed">Need a bare rental package</span>
                 <br />
-                <span className="text-steel-100">We&apos;ll tell you what&apos;s available.</span>
+                <span className="text-steel-100">on your site?</span>
               </h1>
               <p className="mt-6 text-steel-300">
-                Send equipment, dates, and site location. Most requests get a
-                response within one business day — often the same day.
+                Send a short message. We respond within 4 hours during business
+                hours, same day for active dispatch.
               </p>
 
               <div className="hairline mt-10" />
 
               <dl className="mt-10 space-y-6 text-sm">
                 <div>
-                  <dt className="eyebrow">Direct</dt>
-                  <dd className="mt-2 space-y-1 text-steel-200">
-                    <div>
-                      <a
-                        href={`mailto:${site.contact.email}`}
-                        className="hover:text-steel-100"
-                      >
-                        {site.contact.email}
-                      </a>
-                    </div>
-                    <div>
-                      <a
-                        href={site.contact.phoneHref}
-                        className="hover:text-steel-100"
-                      >
-                        {site.contact.phone}
-                      </a>
+                  <dt className="eyebrow">Email</dt>
+                  <dd className="mt-2 text-steel-200">
+                    <a
+                      href={`mailto:${site.contact.email}`}
+                      className="hover:text-steel-100"
+                    >
+                      {site.contact.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="eyebrow">Phone</dt>
+                  <dd className="mt-2 text-steel-200">
+                    <a
+                      href={site.contact.phoneHref}
+                      className="hover:text-steel-100"
+                    >
+                      {site.contact.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="eyebrow">Address</dt>
+                  <dd className="mt-2 text-steel-200">
+                    {site.headquarters.city}, {site.headquarters.county},{" "}
+                    {site.headquarters.state}
+                    <div className="mt-1 text-xs text-steel-500">
+                      {site.headquarters.streetAddress}
                     </div>
                   </dd>
                 </div>
                 <div>
-                  <dt className="eyebrow">Based in</dt>
+                  <dt className="eyebrow">Hours</dt>
                   <dd className="mt-2 text-steel-200">
-                    {site.headquarters.city}, {site.headquarters.state} · serving{" "}
-                    {site.serviceArea.toLowerCase()}
-                  </dd>
-                </div>
-                <div>
-                  <dt className="eyebrow">Insurance</dt>
-                  <dd className="mt-2 text-steel-200">
-                    {site.insurance.general} · COI on request
+                    24/7 dispatch · Office Mon–Fri 8a–6p CT
                   </dd>
                 </div>
               </dl>

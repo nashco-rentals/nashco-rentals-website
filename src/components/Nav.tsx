@@ -7,10 +7,11 @@ import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { site } from "@/content/site";
 
+
+
 const navLinks = [
-  { href: "/fleet", label: "Fleet" },
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
+  { href: "/capabilities", label: "Capabilities" },
+  { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -18,11 +19,7 @@ const navLinks = [
 export function Nav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  // Close the drawer whenever the route changes.
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const closeDrawer = () => setOpen(false);
 
   // Lock body scroll while drawer is open.
   useEffect(() => {
@@ -73,7 +70,7 @@ export function Nav() {
             href="/contact"
             className="hidden h-9 items-center rounded-sm border border-cobalt-500/40 bg-cobalt-500/10 px-4 text-sm font-semibold text-cobalt-400 transition hover:bg-cobalt-500/20 hover:text-steel-100 sm:inline-flex"
           >
-            Request Quote
+            Capability Brief
           </Link>
           <button
             type="button"
@@ -101,6 +98,7 @@ export function Nav() {
                 <Link
                   key={l.href}
                   href={l.href}
+                  onClick={closeDrawer}
                   className={`flex items-center justify-between rounded-sm px-4 py-3 text-base font-semibold transition ${
                     active
                       ? "bg-cobalt-500/10 text-steel-100"
@@ -117,9 +115,10 @@ export function Nav() {
           <div className="grid gap-3">
             <Link
               href="/contact"
+              onClick={closeDrawer}
               className="btn-brushed inline-flex h-12 items-center justify-center rounded-sm px-6 text-sm font-bold uppercase tracking-[0.14em]"
             >
-              Request a Quote
+              Request a Capability Brief
             </Link>
             <a
               href={site.contact.phoneHref}

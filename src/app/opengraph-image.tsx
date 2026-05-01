@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NASHCO Rentals — Heavy Equipment Rental & Civil Support, Texas";
+export const alt = "Nashco Rentals — 24/7 Bare Rental Dispatch for Texas Megaprojects";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -98,20 +98,20 @@ export default function OpengraphImage() {
               color: "#3b82f6",
             }}
           >
-            Heavy Equipment Rental · Texas
+            Bare Rental Dispatch · Texas Megaprojects
           </div>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: 88,
+              fontSize: 78,
               fontWeight: 800,
-              lineHeight: 1.02,
+              lineHeight: 1.04,
               letterSpacing: "-0.02em",
             }}
           >
-            <span style={{ color: "#d3d8e0" }}>Iron that shows up.</span>
-            <span style={{ color: "#e8ebf0" }}>Operators who deliver.</span>
+            <span style={{ color: "#d3d8e0" }}>Iron On Time. On Spec.</span>
+            <span style={{ color: "#e8ebf0" }}>On Texas Megaprojects.</span>
           </div>
         </div>
 
