@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Nav } from "@/components/Nav";
@@ -27,17 +28,27 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-white/5 bg-ink-900">
-      {/* TODO: replace with on-site night photo of light towers when GFTX cleared.
-          Shot list: low-angle dusk/night, Texas industrial site, multiple LTs lit,
-          dust or movement to convey 24/7 ops. Until cleared, the dark gradient
-          hero stands. */}
-      <div aria-hidden className="absolute inset-0 bg-grid opacity-60" />
+      {/* Hero photo: LTX-2.3 generated, John Deere 260E ADT + light towers at
+          dusk, Nashco logo applied as fleet decal on the cab door. Generated
+          asset (not on-site photography) — re-render in LTX if/when fleet
+          aesthetic changes. */}
+      <Image
+        src="/hero.jpg"
+        alt="Nashco Rentals fleet at dusk — articulated dump truck with Nashco branding flanked by illuminated diesel light towers on a Texas industrial site"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      {/* Darkening + cobalt-tint gradient anchored bottom-left, where the H1
+          sits — keeps the headline + sub copy + CTAs readable over the
+          photo without crushing the equipment subject. */}
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 60% at 80% 30%, rgba(37,99,235,0.18) 0%, rgba(10,13,20,0) 60%), radial-gradient(40% 40% at 10% 80%, rgba(59,130,246,0.12) 0%, rgba(10,13,20,0) 70%)",
+            "linear-gradient(105deg, rgba(10,13,20,0.85) 0%, rgba(10,13,20,0.65) 35%, rgba(10,13,20,0.30) 60%, rgba(10,13,20,0.10) 100%), linear-gradient(180deg, rgba(10,13,20,0) 60%, rgba(10,13,20,0.55) 100%)",
         }}
       />
 
@@ -49,7 +60,7 @@ function Hero() {
             <br />
             <span className="text-steel-100">On Spec. On Texas Megaprojects.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-300">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-100/95 [text-shadow:_0_1px_2px_rgba(0,0,0,0.6)]">
             Nashco is a 24/7 bare rental dispatch operation supplying light
             towers, civil iron, and site-support equipment to Texas industrial
             construction. Owned fleet plus a sub-rent network — one PO, full
@@ -65,7 +76,7 @@ function Hero() {
             </Link>
             <a
               href={site.contact.phoneHref}
-              className="inline-flex h-12 items-center rounded-sm border border-cobalt-500 bg-cobalt-500/10 px-6 text-sm font-bold uppercase tracking-[0.14em] text-cobalt-400 transition hover:bg-cobalt-500 hover:text-white"
+              className="inline-flex h-12 items-center rounded-sm border border-cobalt-500 bg-cobalt-500/30 px-6 text-sm font-bold uppercase tracking-[0.14em] text-cobalt-400 backdrop-blur-sm transition hover:bg-cobalt-500 hover:text-white"
             >
               Call Dispatch
             </a>
