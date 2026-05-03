@@ -54,6 +54,25 @@ export default function ProjectsPage() {
       </section>
 
       <section className="mt-16">
+        <div className="eyebrow">Active reference</div>
+        <div className="mt-6 rounded-sm border border-white/10 bg-ink-800/40 p-8 md:p-10">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-steel-100 sm:text-3xl">
+            Texas Giga build · Travis County
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-steel-300">
+            Bare rental fleet running 24/7 on continuous civil construction
+            since 2024 — light towers, civil iron, dump trucks, motor graders,
+            and service trucks across multiple work fronts. Reference letter
+            and project-specific COIs available on request through prequal.
+          </p>
+          {/* TODO: when Kelly Nelson reference letter is signed, host as /docs/nashco-tx-giga-reference.pdf and convert this line to a real link. Confirm permission to name "Tesla" before any further specificity. */}
+          <p className="mt-6 text-xs uppercase tracking-[0.2em] text-steel-500">
+            Reference letter (PDF) — available on request
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-16">
         <div className="eyebrow">Capability targets</div>
         <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-2xl font-semibold text-steel-100 sm:text-3xl">
           Texas megaprojects within our deployment range.

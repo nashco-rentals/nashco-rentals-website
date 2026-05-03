@@ -113,11 +113,6 @@ export default function AboutPage() {
                   package available on request" language is shown. */}
               ISN / Avetta / Veriforce-ready prequal package available on
               request.
-              <br />
-              <span className="text-steel-500">
-                [TODO: confirm ISN / Avetta verified status; add badges only when
-                subscriptions are active.]
-              </span>
             </p>
           </div>
         </section>
