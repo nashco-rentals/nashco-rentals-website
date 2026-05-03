@@ -54,7 +54,7 @@ export default function OpengraphImage() {
               <span style={{ color: "#C0C5CE", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 N
               </span>
-              <span style={{ color: "#4967AD", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
+              <span style={{ color: "#1E5BC6", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 R
               </span>
             </div>
@@ -77,7 +77,7 @@ export default function OpengraphImage() {
                 fontSize: 20,
                 fontWeight: 700,
                 letterSpacing: "0.32em",
-                color: "#4967AD",
+                color: "#1E5BC6",
                 marginTop: 6,
               }}
             >
@@ -95,7 +95,7 @@ export default function OpengraphImage() {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.24em",
-              color: "#4967AD",
+              color: "#1E5BC6",
             }}
           >
             Bare Rental Dispatch · Texas Megaprojects
