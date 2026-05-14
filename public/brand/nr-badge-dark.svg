@@ -2,8 +2,8 @@
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="365 380 295 300">
   <defs>
     <linearGradient id="navyGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#2D4A6B"/>
-      <stop offset="100%" stop-color="#0E1A2A"/>
+      <stop offset="0%" stop-color="#1A3047"/>
+      <stop offset="100%" stop-color="#1A3047"/>
     </linearGradient>
     <style>
       .st0 {
