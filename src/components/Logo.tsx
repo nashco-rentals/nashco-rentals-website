@@ -8,7 +8,7 @@ type LogoProps = {
    *  uses the dark-surface variant (brushed-steel letters + navy
    *  gradient badge) for near-black surfaces. */
   light?: boolean;
-  /** Height in Tailwind units (e.g., "h-8", "h-10"). Default h-9 for nav. */
+  /** Height in Tailwind units (e.g., "h-12", "h-16"). Default h-14 for nav. */
   sizeClass?: string;
 };
 
@@ -16,7 +16,7 @@ export function Logo({
   className = "",
   compact = false,
   light = false,
-  sizeClass = "h-9",
+  sizeClass = "h-14",
 }: LogoProps) {
   if (compact) {
     return (

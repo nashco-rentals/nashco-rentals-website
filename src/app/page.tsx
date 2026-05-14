@@ -40,17 +40,15 @@ function Hero() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      {/* Darkening + navy-tint gradient anchored bottom-left, where the H1
+      {/* Darkening + cobalt-tint gradient anchored bottom-left, where the H1
           sits — keeps the headline + sub copy + CTAs readable over the
-          photo without crushing the equipment subject. Fades into the
-          Navy #1A3047 page bg at the bottom for a clean photo-to-page
-          transition. */}
+          photo without crushing the equipment subject. */}
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, rgba(26,48,71,0.92) 0%, rgba(26,48,71,0.70) 35%, rgba(26,48,71,0.35) 60%, rgba(26,48,71,0.10) 100%), linear-gradient(180deg, rgba(26,48,71,0) 55%, rgba(26,48,71,1) 100%)",
+            "linear-gradient(105deg, rgba(10,13,20,0.85) 0%, rgba(10,13,20,0.65) 35%, rgba(10,13,20,0.30) 60%, rgba(10,13,20,0.10) 100%), linear-gradient(180deg, rgba(10,13,20,0) 60%, rgba(10,13,20,0.55) 100%)",
         }}
       />
 
