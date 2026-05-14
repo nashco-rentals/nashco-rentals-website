@@ -21,10 +21,20 @@
   --color-cobalt-600: #13243a;
   --color-cobalt-700: #0e1a2a;
 
-  --color-ink-950: #1a2231;
-  --color-ink-900: #242f41;
-  --color-ink-800: #2c3850;
-  --color-ink-700: #34425c;
+  /* Navy page family — page bg is true Navy #1A3047; sections + cards
+     are lifted-navy shades so they read as recessed/raised compartments
+     in a navy enclosure. */
+  --color-ink-950: #142540; /* deeper-navy accent band (alternating sections) */
+  --color-ink-900: #1a3047; /* page bg — true Navy (brand Hero color) */
+  --color-ink-800: #23405f; /* cards/panels — lifted navy */
+  --color-ink-700: #2d4d70; /* raised elements / hover */
+
+  /* Cream surfaces — nav + footer chrome sit OVER the navy page.
+     steel-100 doubles as cream surface; cream-200 is a darker shade
+     for subtle borders/dividers on the cream chrome. */
+  --color-cream-100: #e8ebf0;
+  --color-cream-200: #c9cfda;
+  --color-cream-300: #8a93a3;
 
   --color-steel-100: #e8ebf0;
   --color-steel-200: #c9cfda;

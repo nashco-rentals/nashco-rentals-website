@@ -3,16 +3,21 @@ import Image from "next/image";
 type LogoProps = {
   className?: string;
   compact?: boolean;
+  /** When true, render the light-surface variant (black letters + navy
+   *  gradient badge) used on cream chrome (nav, footer). Default false
+   *  uses the dark-surface variant (brushed-steel letters + navy
+   *  gradient badge) for near-black surfaces. */
+  light?: boolean;
   /** Height in Tailwind units (e.g., "h-8", "h-10"). Default h-9 for nav. */
   sizeClass?: string;
 };
 
-/**
- * Dark-variant logo for near-black surfaces (nav, footer, default app chrome).
- * For light surfaces (future press kit, email templates), use the source file
- * at /brand/nr-wordmark.svg directly.
- */
-export function Logo({ className = "", compact = false, sizeClass = "h-9" }: LogoProps) {
+export function Logo({
+  className = "",
+  compact = false,
+  light = false,
+  sizeClass = "h-9",
+}: LogoProps) {
   if (compact) {
     return (
       <Image
@@ -27,7 +32,7 @@ export function Logo({ className = "", compact = false, sizeClass = "h-9" }: Log
   }
   return (
     <Image
-      src="/brand/nr-wordmark-dark.svg"
+      src={light ? "/brand/nr-wordmark.svg" : "/brand/nr-wordmark-dark.svg"}
       alt="NASHCO Rentals"
       width={1160}
       height={290}
