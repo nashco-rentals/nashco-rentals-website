@@ -10,11 +10,11 @@
       <stop offset="100%" stop-color="#0A1421"/>
     </linearGradient>
     <linearGradient id="steelGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F3F5F8"/>
-      <stop offset="38%" stop-color="#C9CFDA"/>
-      <stop offset="62%" stop-color="#8A93A3"/>
-      <stop offset="85%" stop-color="#E0E4EA"/>
-      <stop offset="100%" stop-color="#AAB1BF"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#D8DDE5"/>
+      <stop offset="45%" stop-color="#5A6573"/>
+      <stop offset="70%" stop-color="#F0F2F6"/>
+      <stop offset="100%" stop-color="#707783"/>
     </linearGradient>
     <style>
       .st0 {
