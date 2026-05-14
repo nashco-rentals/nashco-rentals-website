@@ -2,12 +2,21 @@
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="365 380 295 300">
   <defs>
     <linearGradient id="navyGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1A3047"/>
-      <stop offset="100%" stop-color="#1A3047"/>
+      <stop offset="0%" stop-color="#1F3855"/>
+      <stop offset="35%" stop-color="#1A3047"/>
+      <stop offset="75%" stop-color="#13243A"/>
+      <stop offset="100%" stop-color="#0A1421"/>
+    </linearGradient>
+    <linearGradient id="steelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3F5F8"/>
+      <stop offset="38%" stop-color="#C9CFDA"/>
+      <stop offset="62%" stop-color="#8A93A3"/>
+      <stop offset="85%" stop-color="#E0E4EA"/>
+      <stop offset="100%" stop-color="#AAB1BF"/>
     </linearGradient>
     <style>
       .st0 {
-        fill: #C0C5CE;
+        fill: url(#steelGrad);
       }
 
       .st1 {
