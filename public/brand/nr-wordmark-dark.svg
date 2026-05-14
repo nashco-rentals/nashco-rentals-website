@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="360 395 1160 290">
   <defs>
-    <linearGradient id="cobaltGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#4A7DD9"/>
-      <stop offset="100%" stop-color="#0F3D8F"/>
+    <linearGradient id="navyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2D4A6B"/>
+      <stop offset="100%" stop-color="#0E1A2A"/>
     </linearGradient>
     <style>
       .st0 {
@@ -11,11 +11,11 @@
       }
 
       .st1 {
-        fill: url(#cobaltGrad);
+        fill: url(#navyGrad);
       }
 
       .st2 {
-        fill: url(#cobaltGrad);
+        fill: url(#navyGrad);
       }
     </style>
   </defs>

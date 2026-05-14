@@ -1,22 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette
-     NASHCO Cobalt is #1E5BC6 (per brand spec, updated 2026-05-02 from
-     the original #4967AD which was too desaturated/violet to read as
-     true cobalt on dark backgrounds). The 500 shade is the canonical
-     brand hex; 400/600/700 are symmetric lightness shifts so the rest
-     of the UI stays within brand. Do NOT replace these with Tailwind's
-     blue palette — that reads as generic SaaS. */
-  --color-cobalt-400: #4a7dd9;
-  --color-cobalt-500: #1e5bc6;
-  --color-cobalt-600: #16438f;
-  --color-cobalt-700: #0f3d8f;
+  /* Brand palette — locked 2026-05-13 (NASHCO_Brand_Spec_05132026.md).
+     Replaces the prior Cobalt #1E5BC6 family which read as fintech/SaaS
+     blue. Hierarchy:
+       Navy   #1A3047 — Hero. Icons, headers, primary branding, CTAs.
+       Slate  #242F41 — Environment. Page + panel backgrounds (replaces
+                        pure-black backgrounds; pure black made navy
+                        look muddy).
+       Black  #1A1A1A — Structure. Wordmark, "RENTALS" secondary text,
+                        thin lines, borders.
+       Steel  #C0C5CE — Light. Secondary logo parts, highlights, light
+                        text on dark.
+     Token names (cobalt-*, ink-*) are kept for internal stability; the
+     underlying hex values are the new Navy + Dark Slate family. Do NOT
+     reintroduce bright cobalt — it reads as consumer tech, not
+     enterprise infrastructure. */
+  --color-cobalt-400: #5e7693;
+  --color-cobalt-500: #1a3047;
+  --color-cobalt-600: #13243a;
+  --color-cobalt-700: #0e1a2a;
 
-  --color-ink-950: #05070c;
-  --color-ink-900: #0a0d14;
-  --color-ink-800: #10141c;
-  --color-ink-700: #171c27;
+  --color-ink-950: #1a2231;
+  --color-ink-900: #242f41;
+  --color-ink-800: #2c3850;
+  --color-ink-700: #34425c;
 
   --color-steel-100: #e8ebf0;
   --color-steel-200: #c9cfda;

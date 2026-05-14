@@ -16,13 +16,13 @@ export default function OpengraphImage() {
           justifyContent: "space-between",
           padding: "72px 80px",
           background:
-            "linear-gradient(135deg, #0a0d14 0%, #10141c 55%, #0a0d14 100%)",
+            "linear-gradient(135deg, #1A2231 0%, #242F41 55%, #1A2231 100%)",
           fontFamily: "system-ui, sans-serif",
           color: "#C0C5CE",
           position: "relative",
         }}
       >
-        {/* Cobalt glow top-right */}
+        {/* Navy glow top-right */}
         <div
           style={{
             position: "absolute",
@@ -32,7 +32,7 @@ export default function OpengraphImage() {
             height: 560,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle, rgba(37,99,235,0.40) 0%, rgba(10,13,20,0) 70%)",
+              "radial-gradient(circle, rgba(26,48,71,0.85) 0%, rgba(36,47,65,0) 70%)",
           }}
         />
 
@@ -44,7 +44,7 @@ export default function OpengraphImage() {
               width: 84,
               height: 84,
               borderRadius: 16,
-              background: "#05070c",
+              background: "#1A2231",
               border: "2px solid rgba(255,255,255,0.06)",
               alignItems: "center",
               justifyContent: "center",
@@ -54,7 +54,7 @@ export default function OpengraphImage() {
               <span style={{ color: "#C0C5CE", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 N
               </span>
-              <span style={{ color: "#1E5BC6", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
+              <span style={{ color: "#1A3047", fontSize: 40, fontWeight: 900, letterSpacing: "-2px" }}>
                 R
               </span>
             </div>
@@ -77,7 +77,7 @@ export default function OpengraphImage() {
                 fontSize: 20,
                 fontWeight: 700,
                 letterSpacing: "0.32em",
-                color: "#1E5BC6",
+                color: "#1A3047",
                 marginTop: 6,
               }}
             >
@@ -95,7 +95,7 @@ export default function OpengraphImage() {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.24em",
-              color: "#1E5BC6",
+              color: "#1A3047",
             }}
           >
             Bare Rental Dispatch · Texas Megaprojects
