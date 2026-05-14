@@ -22,11 +22,11 @@
       }
 
       .st1 {
-        fill: url(#navyGrad);
+        fill: url(#steelGrad);
       }
 
       .st2 {
-        fill: url(#navyGrad);
+        fill: url(#steelGrad);
       }
     </style>
   </defs>
